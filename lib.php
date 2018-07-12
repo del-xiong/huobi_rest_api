@@ -385,9 +385,8 @@ class req {
 		$algorithm = 'sha256';
 		$pemSerializer = new PemPrivateKeySerializer(new DerPrivateKeySerializer($adapter));
 		$key = $pemSerializer->parse(PRIVATE_KEY);
-		$document = $sig;
 		$signer = new Signer($adapter);
-		$hash = $signer->hashData($generator, $algorithm, $document);
+		$hash = $signer->hashData($generator, $algorithm, $sig);
 		// 随机数加盐签名 可大幅提高安全性
 		$random = \Mdanter\Ecc\Random\RandomGeneratorFactory::getHmacRandomGenerator($key, $hash, $algorithm);
 		$randomK = $random->generate($generator->getOrder());
