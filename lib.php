@@ -414,11 +414,6 @@ class req {
 		curl_setopt($ch, CURLOPT_TIMEOUT,60);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-
-		curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_HTTP);
-		curl_setopt($ch, CURLOPT_PROXY, "127.0.0.1");
-		curl_setopt($ch, CURLOPT_PROXYPORT, 1080);
-
 		curl_setopt ($ch, CURLOPT_HTTPHEADER, [
 			"Content-Type: application/json",
 			]);
